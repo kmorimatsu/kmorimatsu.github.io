@@ -1,0 +1,70 @@
+<HTML>
+<HEAD><TITLE>VB-tips</TITLE>
+<BODY>
+このページは、私が Visual Basic でプログラミングする時に用いるサブルーチンのいくつかをまとめた覚え書きのようなものです。<P>
+私自身で書き下ろしたものとあちこちの Web からコピーしてきて書き直したものの両方が載せてあります。<BR>無保証です。利用はご自身の責任の元でお願いします。<P>
+Windows 2000 + VB5 で動作確認しています。<P>
+<table border>
+  <tr>
+    <th>ソースコード</th>
+    <th>用途</th>
+    <th>使用 API</th>
+    <th>更新日</th>
+  </tr>
+  <tr>
+    <td><A HREF="CloseFolders.bas">CloseFolders.bas</A></td>
+    <td>表示されているフォルダをすべて閉じる。</td>
+    <td>EnumWindows<BR>IsWindowVisible<BR>SendMessage<BR>GetClassName<BR></td>
+    <td>2004-12-28</td>
+  </tr>
+  <tr>
+    <td><A HREF="cmd.bas">cmd.bas</A></td>
+    <td>OCX を利用せずに"ファイルを開く"ダイアログボックスを使う。</td>
+    <td>GetOpenFileName<BR>GetSaveFileName<BR></td>
+    <td>2004-12-28</td>
+  </tr>
+  <tr>
+    <td><A HREF="CPUusage.cls">CPUusage.cls</A></td>
+    <td>CPU 使用率を知る。</td>
+    <td>GetModuleHandle<BR>GetProcAddress<BR>NtQuerySystemInformation<BR>RegOpenKey<BR>RegCloseKey<BR>RegQueryValueEx<BR></td>
+    <td>2005-5-16</td>
+  </tr>
+  <tr>
+    <td><A HREF="GetFileNames.bas">GetFileNames.bas</A></td>
+    <td>Drag & Drop の際、コマンドラインに渡された複数のファイル名を解決。</td>
+    <td>-</td>
+    <td>2004-12-28</td>
+  </tr>
+  <tr>
+    <td><A HREF="StopWatch.cls">StopWatch.cls</A></td>
+    <td>時間経過を測定。</td>
+    <td>-<BR></td>
+    <td>2004-12-28</td>
+  </tr>
+  <tr>
+    <td><A HREF="StringEachLine.cls">StringEachLine.cls</A></td>
+    <td>文字列の一行ずつを取得。</td>
+    <td>-</td>
+    <td>2004-12-28</td>
+  </tr>
+  <tr>
+    <td><A HREF="TaskTray.bas">TaskTray.bas</A></td>
+    <td>タスクトレイの操作。</td>
+    <td>Shell_NotifyIconA<BR></td>
+    <td>2004-12-28</td>
+  </tr>
+  <tr>
+    <td><A HREF="WinShutDown.bas">WinShutDown.bas</A></td>
+    <td>Windows のシャットダウン及び再起動。</td>
+    <td>ExitWindowsEx<BR>GetVersionEx<BR>GetCurrentProcess<BR>OpenProcessToken<BR>LookupPrivilegeValue<BR>AdjustTokenPrivileges<BR></td>
+    <td>2004-12-28</td>
+  </tr>
+  <tr>
+    <td><A HREF="CdTrayOpenClose.bas">CdTrayOpenClose.bas</A></td>
+    <td>CD トレイの開閉。</td>
+    <td>mciSendString<BR></td>
+    <td>2005-5-9</td>
+  </tr>
+</table>
+ソースのダウンロードは、右クリックメニューの"対象をファイルに保存"からどうぞ。
+</BODY></HTML>

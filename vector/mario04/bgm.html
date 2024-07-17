@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<title>HTML5 Sound Test (play BGM) ver 0.4</title>
+<meta charset="UTF-8" />
+<script type="text/javascript" src="./main.js"></script>
+<script type="text/javascript" src="./mariop.js"></script>
+</head>
+<body style="text-align: center;">
+<p>Sample rate:<input id="sfreq" type="text" value="32000" onchange="setSfreq(this.value)" /></p>
+<script type="text/javascript">
+	document.getElementById("sfreq").onchange();
+</script>
+<p>
+	<input type="button" value="Mario" onclick="mariop();" />
+	(<a href="http://www.mariopiano.com/mario-sheet-music-overworld-main-theme.html">score</a>)
+</p><p>
+	<a href="data:audio/wav," onclick="this.href='data:audio/wav,'+makeWave(readScore(mariopdata())); return true;">download WAVE</a>
+	(Be careful, it may take a couple of minutes!)
+</p>
+<p>Reload this page to stop music.</p>
+</body></html>

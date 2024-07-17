@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8" />
+	<title>ZK-80 web の使い方</title>
+	<style type="text/css">
+	<!--
+		body {
+			width: 640px;
+		}
+		div {
+			text-align: center;
+		}
+		table, th, td {
+			border: 1px #0000C0 solid;
+		}
+		table {
+			margin-left:auto;
+			margin-right:auto;
+		}
+		a {
+			text-decoration: none;
+		}
+	-->
+	</style>
+</head>
+<body>
+<p>ZK-80 webは、HTML5による、NEC TK-80のエミュレーターです。</p>
+<p>HTML5の機能のうち使用しているものは、以下の通りです。</p>
+<ul>
+<li>Canvas</li>
+<li>FileReader</li>
+<li>Multimedia (audio player)</li>
+</ul>
+<p>これら３つの機能がすべてそろっている環境（FireFoxやChromeなど）での使用が理想的です。
+が、HTML5の基本機能のCanvasが扱えれば、ほとんどの機能が使えます。</p>
+<p>zk-80web.htmlにブラウザでアクセスすると、以下のように表示されます。</p>
+<div><img src="zk80web.jpg" alt="zk80web" /></div>
+<p>使い方はオリジナルのTK-80とほとんど同じなので、詳細はここでは割愛します
+（0x8000からのメモリーに機械語でプログラムを入力して、「RUN」キーで実行することになります）。</p>
+<p>以下のサブルーチンが使えます。これらの使い方については、
+<a href="http://www.st.rim.or.jp/~nkomatsu/evakit/TK80.html">小松さんの「NEC TK-80」というページ</a>が詳しいです。</p>
+<table>
+<tr><th>名称</th><th>アドレス</th><th>機能</th></tr>
+<tr><td>RGDSP</td><td>01A1</td><td>アドレス・データレジスタ表示</td></tr>
+<tr><td>SEGCG</td><td>01C0</td><td>セグメントデータ変換</td></tr>
+<tr><td>KEYIN</td><td>0216</td><td>キー入力(待あり)</td></tr>
+<tr><td>INPUT</td><td>0223</td><td>キー入力(待なし)</td></tr>
+<tr><td>D1</td><td>02DD</td><td>4.5 msタイマ</td></tr>
+<tr><td>D2</td><td>02EA</td><td>9.0 msタイマ</td></tr>
+<tr><td>D3</td><td>02EF</td><td>27 msタイマ</td></tr>
+</table>
+<p>ここでは、ZK-80 webに特異的な事象について、説明します。</p>
+<ul>
+<li>まず、CPUは8080Aではなく、Z80です。
+Z80は、一部の命令で消費クロック数が若干異なる以外は8080Aのアッパーコンパチブルですので、8080用に書いたプログラムがそのまま動くはずです。</li>
+<li>モニタープログラムは、ZK-80用に書いた専用のものを用いています。ただし、上記で説明したサブルーチンは、同じように使えます。</li>
+<li>アドレス空間は、0x0000-0x02ffの768 bytesがROM、0x8000-0xffffの32 kbytesがRAMです。</li>
+<li>使用しているIOアドレスが、TK-80のものと異なります。これは、将来のバージョンではあわせる可能性があります。
+上記のサブルーチンを使用する限り、この事を気にする事なくプログラミングすることが可能です。</li>
+<li>プログラムのロードとストアは、カセットテープインターフェースではなくブラウザでバイナリファイルを扱うことで行われます。</li>
+<li>操作は、基本的には画面上の画像をクリックして行いますが、次のホットキーも使えます。
+<table>
+<tr><th>機能</th><th>キー</th></tr>
+<tr><td>0-9, A-F</td><td>0-9, A-F</td></tr>
+<tr><td>RET</td><td>T</td></tr>
+<tr><td>RUN</td><td>R</td></tr>
+<tr><td>STORE DATA</td><td>S</td></tr>
+<tr><td>LOAD DATA</td><td>L</td></tr>
+<tr><td>RESET</td><td>ESC</td></tr>
+<tr><td>ADRS SET</td><td>SPACE</td></tr>
+<tr><td>READ INCR</td><td>↓, →</td></tr>
+<tr><td>READ DER</td><td>↑, ←</td></tr>
+<tr><td>WRITE INCR</td><td>ENTER</td></tr>
+<tr><td>STEP/AUTO切替え</td><td>TAB</td></tr>
+</table>
+</li>
+<li>色々隠し機能があります。
+たとえば、「
+<a href="../zk80web.html?clock=20k">zk80web.html?clock=20k</a>
+」にアクセスすると、20 kHzのクロックで動きますので、モバイルなど動作の遅い環境で有用だと思われます（ただし、上記のサブルーチン、D1-D3の待ち時間は変わりません）。
+main.jsを覗けば、他の隠し機能に関する情報も得られるでしょう。</li>
+</ul>
+<p>なお、バージョン0.3以降で使用しているインターフェースの画像（キーボード、LED、トグルスイッチ）及び操作音は、
+<a href="http://triring.net/">triring</a>
+さんに頂いたものを修正して用いています。
+LGPLにコンパチブルなライセンスで、これらのリソースを供与して頂きました。
+どうも有り難うございます。</p>
+</body>
+</html>

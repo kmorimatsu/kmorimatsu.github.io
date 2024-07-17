@@ -1,0 +1,85 @@
+<HTML>
+<HEAD><TITLE>VB-C#-Delphi</TITLE>
+<BODY>
+VB, C#, Delphi 間の命令互換表<P>
+<table border>
+  <tr>
+    <th>Visual Basic (ver 6 以前)</th>
+    <th>C#.NET</th>
+    <th>Delphi</th>
+    <th>備考</th>
+  </tr>
+  <tr>
+    <td><pre>Dim i as Integer<BR>i=1<BR>Dim T as String<BR>T="test"</pre></td>
+    <td><pre>int i=1;<BR> string T="test";</pre></td>
+    <td><pre>var<BR> i: Integer;<BR> T: String;<BR>begin<BR> i:=1;<BR> T:='test';<BR>end;</pre></td>
+    <td>使用可能な変数型については、ヘルプファイルを参照</td>
+  </tr>
+  <tr>
+    <td><pre>A+B<BR>A-B<BR>A*B<BR>A/B<BR>A mod B</pre></td>
+    <td><pre>A+B<BR>A-B<BR>A*B<BR>A/B<BR>A%B</pre></td>
+    <td><pre>A+B<BR>A-B<BR>A*B<BR>A/B<BR>A mod B</pre></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><pre>If 条件式 Then A</pre></td>
+    <td><pre>if (条件式) A;</pre></td>
+    <td><pre>if 条件式 then A;</pre></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><pre>If 条件式 then<BR> A<BR>End If</pre></td>
+    <td><pre>if (条件式)<BR>{<BR> A;<BR>}</pre></td>
+    <td><pre>if 条件式 then<BR> begin<BR>  A;<BR> end;</pre></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><pre>If 条件式 then<BR> A<BR>Else<BR> B<BR>End If</pre></td>
+    <td><pre>if (条件式)<BR>{<BR> A;<BR>}<BR>else<BR>{<BR> B;<BR>}</pre></td>
+    <td><pre>if 条件式 then<BR> begin<BR>  A;<BR> end<BR>else<BR> begin<BR>  B;<BR> end;</pre></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><pre>A=B<BR>A&lt;&gt;B<BR>A&lt;B<BR>A&lt;=B<BR>A&gt;B<BR>A&gt;=B</pre></td>
+    <td><pre>A==B<BR>A!=B<BR>A&lt;B<BR>A&lt;=B<BR>A&gt;B<BR>A&gt;=B</pre></td>
+    <td><pre>A=B<BR>A&lt;&gt;B<BR>A&lt;B<BR>A&lt;=B<BR>A&gt;B<BR>A&gt;=B</pre></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><pre>Select Case x<BR>Case a<BR> A<BR>Case b<BR> B<BR>Case Else<BR> C<BR>End Select</pre></td>
+    <td><pre>switch (x)<BR>{<BR>case a:<BR> A;<BR> break;<BR>case b:<BR> B;<BR> break;<BR>default:<BR> C;<BR> break;<BR>}</pre></td>
+    <td><pre>case x of<BR> a:<BR>  begin<BR>   A;<BR>  end;<BR> b:<BR>  begin<BR>   B;<BR>  end;<BR> else<BR>  begin<BR>   C;<BR>  end;<BR>end;</pre></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><pre>Do 条件<BR> A<BR>Loop</pre></td>
+    <td><pre>while (条件)<BR>{<BR> A;<BR>}</pre></td>
+    <td><pre>while 条件 do<BR>begin<BR> A;<BR>end;</pre></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><pre>Do<BR> A<BR>Loop 条件</pre></td>
+    <td><pre>do<BR>{<BR> A;<BR>} while (条件);</pre></td>
+    <td><pre>repeat<BR> A;<BR>until 条件</pre></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><pre>For i=1 to 10<BR> A<BR>Next i</pre></td>
+    <td><pre>for (i=1;i<=10;i++)<BR>{<BR> A;<BR>}</pre></td>
+    <td><pre>for i:=1 to 10 do<BR>begin<BR> A;<BR>end;</pre></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><pre>For i=10 to 1 Step -1<BR> A<BR>Next i</pre></td>
+    <td><pre>for (i=10;i>=1;i--)<BR>{<BR> A;<BR>}</pre></td>
+    <td><pre>for i:=10 downto 1 do<BR>begin<BR> A;<BR>end;</pre></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><pre>A=A+B<BR>A=A-B<BR>A=A+1<BR>A=A-1</pre></td>
+    <td><pre>A+=B<BR>A-=B<BR>A++<BR>A--</pre></td>
+    <td><pre>A:=A+B<BR>A:=A-B<BR>A:=A+1<BR>A:=A-1</pre></td>
+    <td></td>
+  </tr>
+</table>
+</BODY></HTML>
