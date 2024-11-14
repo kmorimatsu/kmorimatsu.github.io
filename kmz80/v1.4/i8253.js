@@ -23,8 +23,8 @@ i8253.events=function(){
 	while (1>this.timer1time && 0<this.timer1) {
 		this.timer1time+=this.timer1;
 		this.timer2time--;
-		while (0>this.timer2time && 0<this.timer2) {
-			this.timer2time=this.timer2=0;
+		while (1>this.timer2time && 0<this.timer2) {
+			this.timer2time+=this.timer2;
 			z80.interrupt();
 		}
 	}
@@ -36,34 +36,31 @@ i8253.read=function(addr){
 		case 0:
 			if (this.msb) {
 				this.msb=0;
-				ret=this.rwbuff>>8;
+				ret=this.timer0>>8;
 				return ret;
 			} else {
 				this.msb=1;
-				this.rwbuff=this.timer0;
-				ret=this.rwbuff&0xff;
+				ret=this.timer0&0xff;
 				return ret;
 			}
 		case 1:
 			if (this.msb) {
 				this.msb=0;
-				ret=(this.rwbuff&0xff00)>>8;
+				ret=(this.timer1time&0xff00)>>8;
 				return ret;
 			} else {
 				this.msb=1;
-				this.rwbuff=this.timer1time;
-				ret=this.rwbuff&0xff;
+				ret=this.timer1time&0xff;
 				return ret;
 			}
 		case 2:
 			if (this.msb) {
 				this.msb=0;
-				ret=(this.rwbuff&0xff00)>>8;
+				ret=(this.timer2time&0xff00)>>8;
 				return ret;
 			} else {
 				this.msb=1;
-				this.rwbuff=this.timer2time;
-				ret=this.rwbuff&0xff;
+				ret=this.timer2time&0xff;
 				return ret;
 			}
 		default:
